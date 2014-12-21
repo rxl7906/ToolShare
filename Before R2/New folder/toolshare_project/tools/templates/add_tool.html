@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_block %}
+
+<br></br>
+<div class="container">
+    <div class="row">
+		<div class="col-sm-4 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">                
+                    <form accept-charset="UTF-8" action="#" role="form" method="POST">
+                    	{% csrf_token %}
+                    	<div class="fieldWrapper">
+                    		<h2>Add a Tool to your ToolShed!</h2>
+                    	</div>
+                    	{{ message }} 
+
+						{% for field in form %}
+							<div class="form-group">
+			            		{{ field.errors }}
+			            		{{ field.label_tag }}
+			            		<!-- {{field.html_name }} -->
+			            		{% if field.html_name == "available" %}
+			            			{{ form.available }}
+<!-- 			            			<input type="available" name="{{field.html_name" class="form-control"> -->
+			            		{% else %}
+			            			<input type="{{field.html_name}}" name="{{field.html_name}}" class="form-control">
+			            		{% endif %}
+			        		</div>
+			        	{% endfor %}
+                        <button class="btn btn-info" type="submit" value="Submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+{% endblock %}

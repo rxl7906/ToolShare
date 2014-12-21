@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Community Directory{% endblock %}
+{% block body_block %}
+<h1>Administration Area</h1>
+	<p>Here are moderation tools.</p>
+	<p>The average review rating for this community is {{ reviews_avg }}.</p>
+<a href="/../communities/remove_user">Remove a User</a><br>
+<a href="/../communities/remove_tool">Remove a Tool</a><br>
+{% endblock %}

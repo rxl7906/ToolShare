@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_block %}
+<!-- <form action="" method="post">
+	{% csrf_token %}
+	<h1>Approve a Tool Request</h1>
+        <p>{{ message }}</p> 
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	<input type="submit" value="Submit" />
+</form> -->
+<br></br>
+<div class="container">
+    <div class="row">
+		<div class="col-sm-4 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">                
+                    <form accept-charset="UTF-8" action="" role="form" method="POST">
+                    	{% csrf_token %}
+                    	<div class="fieldWrapper">
+                    		<h1>Reject a Tool Request</h1>
+       							<p>{{ message }}</p>
+                    		<!-- <label for="{{ form.username_for_label }}">Request to Approve:</label> -->
+                    		{{ form.as_p }}
+                    	</div>
+                        <!-- {{ form.message }} -->
+                        <!-- <h6 class="pull-right" id="counter">320 characters remaining</h6> -->
+                        <button class="btn btn-info" type="submit" value="Submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Community Directory{% endblock %}
+{% block body_block %}
+<!-- <h1>{{community}}</h1>
+	<p>Here are the members of your community.</p> 
+	{% for value in user_array %}
+		<li>{{value}}</li>
+	{% endfor %} -->
+<br></br>
+<!-- <a href="/../communities/admin" class="btn btn-info primary">Admin Functionality (Moderator only)</a><br> -->
+
+
+<h3><b>{{community}}</b></h3>
+<br>Your community's rating: {{ rating }}</br>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Community Members</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for value in user_array %}
+    	<tr>
+    		<td> {{ value }}</td>
+    	</tr>
+		{% endfor %}
+</table> 
+
+
+<!-- <a href="/../communities/statistics">View Statistics for this Community!</a><br> -->
+<!-- <a href="/../communities/reviews">Reviews</a><br>
+<a href="/../communities/post_review">Post a Review</a><br> -->
+
+<!-- <a href="/../communities/admin">Admin (moderator only)</a><br> -->
+{% endblock %}

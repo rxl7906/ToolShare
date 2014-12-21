@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_block %}
+{% csrf_token %}
+<br></br>
+<h1>Inbox</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+        </div>
+        <div class="col-sm-9 col-md-10">
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+            <a href="/account/send_message" class="btn btn-danger btn-sm btn-block" role="button">COMPOSE</a>
+            <hr />
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="#"><span class="badge pull-right">{{num_message}}</span> Inbox </a>
+                </li>
+                <!-- <li><a href="http://www.jquery2dotnet.com">Sent Mail</a></li> -->
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-10">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="list-group">
+                    	{% for value in message %}
+	                        <a href="#" class="list-group-item">
+	                        	{{ field.label_tag }} {{ field }}
+								<span class="glyphicon glyphicon"></span><span class="name" style="min-width: 120px;
+	                            display: inline-block;"><b>{{ value.from_user.username }}</b></span> 
+                                <p>{{value.message}}</p>
+	                            
+	                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="profile">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <span class="text-center">This tab is empty.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade in" id="messages">
+                    ...</div>
+                <div class="tab-pane fade in" id="settings">
+                    This tab is empty.</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

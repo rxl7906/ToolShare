@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block title %}My Toolshed{% endblock %}
+{% block body_block %}
+
+<!-- Tools your are borrowing -->
+<h3><b>Tools you are Borrowing</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+		<th>Tool type</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for value in borrowing %}
+    	<tr>
+    		<td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+    		<td> {{ value.note }}</td>
+    		<td> <h4><span class="label label-primary">Borrowing</span></h4></td>
+    		<td> {{ value.owner }} </td>
+            <td> </td>
+    	</tr>
+		{% endfor %}
+</table> 
+
+<hr>
+
+<!-- Incoming Tool Requests -->
+<h3><b>Incoming Tool Requests</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Tool type</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Borrower</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for value in incoming %}
+        <tr>
+            <td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+            <td> {{ value.note }}</td>
+            <td> <h4><span class="label label-warning">Pending</span></h4> </td>
+            <td> {{ value.borrower }} </td>
+			 <form action="" method="post">
+                {% csrf_token %}
+            <td> <input class="btn btn-success" type="submit" value="Approve" name="{{ value.uniqueId }}"> <input class="btn btn-danger" type="submit" value="Deny" name="{{ value.uniqueId }}"></td>
+				 
+			</form>
+        </tr>
+        {% endfor %}
+</table> 
+
+<hr>
+
+<!-- Outgoing Tool Requests-->
+<h3><b>Outgoing Tool Requests</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Tool type</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Owner</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for value in outgoing %}
+        <tr>
+            <td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+            <td> {{ value.note }}</td>
+            <td> <h4><span class="label label-warning">Pending</span></h4> </td>
+            <td> {{ value.owner }} </td>
+            <td> </td>
+        </tr>
+        {% endfor %}
+</table> 
+<br> </br>
+
+<hr>
+
+<!-- Mark as returned -->
+<h3><b>Tools being Borrowed</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th> 
+        <th>Tool type</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for value in borrowed %}
+        <tr>
+            <td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+            <td> {{ value.note }}</td>
+			<form action="" method="post">
+                {% csrf_token %}
+				<td> <input class="btn btn-success" type="submit" value="Mark Tool as Returned" name="{{ value.uniqueId }}"></td>
+			</form>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+</table> 
+
+<hr>
+
+<!-- Available tools in your community -->
+<h3><b>My Available Tools</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Tool type</th>
+        <th>Description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for value in available %}
+        <tr>
+            <td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+            <td> {{ value.note }}</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        {% endfor %}
+</table>
+
+<hr>
+
+<!-- Unavailable tools in your community -->
+<h3><b>My Unavailable Tools </b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Tool type</th>
+        <th>Description</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for value in not_available %}
+        <tr>
+            <td> {{ value }}</td>
+            <td> {{ value.type}} </td>
+            <td> {{ value.note }}</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

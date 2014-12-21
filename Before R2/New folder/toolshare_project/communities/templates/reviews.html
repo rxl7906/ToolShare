@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body_block %}
+{% csrf_token %}
+<!-- <p>{{ title }}</p>
+	{% for value in reviews %}
+		<li>{{ value|safe }}</li>
+	{% endfor %} -->
+
+<h3><b>{{ title }}</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Review</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    	{% for value in reviews %}
+    	<tr>
+    		<td>{{ value.user }}</td>
+    		<td>{{ value|safe }}</td>
+    		<td>{{ value.review }}</td>
+    		<td></td>
+    	</tr>
+		{% endfor %}
+</table> 
+{% endblock %}

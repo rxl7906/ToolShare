@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}My Toolshed{% endblock %}
+{% block body_block %}
+<h3><b>Available Tools in your community</b></h3>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Description</th>
+        <th>Owner</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+        
+    	{% for value in tools %}
+    	<tr>
+            
+    		<td> {{ value }}</td>
+    		<td> {{ value.note }}</td>
+    		<td> {{ value.owner }} </td>
+            <td>
+            {% if value.owner != user %}
+					<form action="" method="post">
+					{% csrf_token %}
+					 <input class="btn btn-success" type="submit" value="Borrow Tool" name="{{ value.uniqueId }}"> 
+					</form>
+				
+            {% endif %}
+			</td>
+    	</tr>
+		{% endfor %}
+    </tbody>
+</table>
+
+<br></br>   
+<!-- <h1>Community Toolshed</h1>
+	<p>Here are all the tools in your community's toolshed available to be borrowed.</p>
+	{% for value in tools %}
+		<li>{{value}}</li>
+	{% endfor %}
+	<br><h3><a href="/../tools/borrow_tool">Borrow a tool</a></h3></br> -->
+
+{% endblock %}

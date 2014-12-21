@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Community Directory{% endblock %}
+{% block body_block %}
+<h1>Community Statistics</h1>
+<!-- 	<p>Here are the community statistics.</p>
+	<ul>
+		<li>The number of members: {{ members }}</li>
+		<li>The number of tools: {{ tools }}</li>
+		<li>The most frequent borrower: {{ borrower }} with {{ borrow_count }} borrows.</li>
+		<li>The most frequent loaner: {{ loaner }} with {{ loan_count }} loans.</li>
+		<li>The most popular tool: {{ tool }} with {{ tool_borrow_count }} borrows.</li> -->
+
+<div class="col-md-6">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th> Number of Members: </th>
+				<th> {{ members }} </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr> 
+				<th> Number of Tools: </th> 
+				<th> {{ tools }} </th>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr> 
+				<th> The most frequent borrower: </th>
+				<th> {{ borrower }} with {{ borrow_count }} borrows. </th>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr> 
+				<th> The most frequent loaner: </th> 
+				<th> {{ loaner }} with {{ loan_count }} loans. </th>
+			</tr>
+		</tbody>
+		<tbody>
+			<tr> 
+				<th> The most popular tool: </th> 
+				<th> {{ tool }} with {{ tool_borrow_count }} borrows. </th>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}
