@@ -19,7 +19,7 @@ Python 2.7 +
 1. Download zip file.
 2. Open terminal and change directory to root directory of web app. 
 3. Type in "python manage.py syncdb" and a new database file will be created. 
-4. Fill in the requested info.
+4. Fill in the requested info. (This is just to fill in basic info, not too important)
 5. In a web browser, type in "localhost:8000". 
 
 ## License
