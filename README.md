@@ -22,6 +22,10 @@ Python 2.7 +
 4. Fill in the requested info. (This is just to fill in basic info, not too important)
 5. In a web browser, type in "localhost:8000". 
 
+## Bugs
+
+Borrowing functionality does not work.
+
 ## License
 
 The MIT License (MIT)
